@@ -2,7 +2,7 @@ import { render } from 'inferno';
 import * as serviceWorker from './serviceWorker';
 
 import App from './Game';
-import './index.css';
+import './styles/index.css';
 
 render(<App />, document.getElementById('root'));
 
