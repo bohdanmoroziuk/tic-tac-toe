@@ -1,15 +1,23 @@
 import Square from './Square';
 
-const Board = ({ scale }) => {
-  const renderSquare = (index) => (
-    <Square key={index} value={index + 1} />
-  );
+const Board = ({ squares, makeStep }) => {
+  const renderSquare = (player, index) => {
+    const onClick = () => makeStep(index);
+
+    return (
+      <Square
+        {...{
+          key: index,
+          value: player,
+          onClick,
+        }}
+      />
+    );
+  };
 
   return (
     <div className="board">
-      {[...new Array(scale)].map((_, index) => (
-        renderSquare(index)
-      ))}
+      {squares.map(renderSquare)}
     </div>
   );
 };
