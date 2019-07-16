@@ -1,7 +1,12 @@
 import Button from './Button';
 
-const Square = (props) => (
-  <Button className="square" {...props} />
+const Square = ({ value, ...restProps }) => (
+  <Button 
+    className="square" 
+    {...restProps}
+  >
+    {value}
+  </Button>
 );
 
 export default Square;
