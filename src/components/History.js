@@ -1,7 +1,7 @@
+import { linkEvent } from 'inferno';
+
 const History = ({ history, jumpTo }) => {
   const renderStory = (_, step) => {
-    const handleClick = () => jumpTo(step);
-
     const description = step  
       ? `Go to step #${step}`
       : `To the beginning of the game`;
@@ -10,7 +10,7 @@ const History = ({ history, jumpTo }) => {
       <ol 
         key={step}
         className="story"
-        onClick={handleClick}  
+        onClick={linkEvent(step, jumpTo)}  
       >
         <p className="story__description">
           {description}
