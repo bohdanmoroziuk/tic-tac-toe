@@ -1,7 +1,8 @@
 import { Component } from 'inferno';
 
 import Board from './components/Board';
-import Info from './components/Info';
+import Status from './components/Status';
+import History from './components/History';
 
 import { determineWinner, isEven } from './helpers';
 
@@ -79,9 +80,9 @@ export default class Game extends Component {
           />
         </div>
         <div className="game__section game__info">
-          <Info 
+          <Status {...{status}} />
+          <History 
             {...{
-              status,
               history,
               jumpTo: this.jumpTo
             }}
