@@ -1,0 +1,79 @@
+#root {
+  height: 100%;
+}
+
+/* Game */
+.game {
+  max-width: 768px;
+  width: 100%;
+  height: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 576px) {
+  .game {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .game {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.game__section {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Board */
+.board {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* Square */
+.square {
+  width: 5vw;
+  height: 5vw;
+  background-color: #ccc;
+  transition: background-color 0.5s ease;
+
+  outline: none;
+}
+
+.square:hover {
+  background-color: #f4f4f4;
+}
+
+/* Status */
+.status {
+  padding-bottom: 1rem;
+}
+
+/* Story */
+.story {
+  font-size: 0.875rem;
+  padding: 0.5rem;
+  border: 1px solid #f4f4f4;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.story:hover {
+  background-color: #f4f4f4;
+}
+
+.story + .story {
+  margin-top: 0.5rem;
+}
