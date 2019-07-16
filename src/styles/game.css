@@ -10,11 +10,18 @@
 
   margin-left: auto;
   margin-right: auto;
+
+  display: grid;
+}
+
+@media screen and (max-width: 576px) {
+  .game {
+    grid-template-rows: repeat(2, 1fr);
+  }
 }
 
 @media screen and (min-width: 576px) {
   .game {
-    display: grid;
     grid-template-columns: 3fr 2fr;
   }
 }
@@ -44,8 +51,10 @@
 
 /* Square */
 .square {
-  width: 5vw;
-  height: 5vw;
+  --size: 20vw;
+
+  width: var(--size);
+  height: var(--size);
   background-color: #ccc;
   transition: background-color 0.5s ease;
 
@@ -54,6 +63,24 @@
 
 .square:hover {
   background-color: #f4f4f4;
+}
+
+@media screen and (min-width: 452px) {
+  .square {
+    --size: 15vw;
+  }
+}
+
+@media screen and (min-width: 682px) {
+  .square {
+    --size: 10vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .square {
+    --size: 5vw;
+  }
 }
 
 /* Status */
