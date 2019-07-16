@@ -88,8 +88,8 @@
   padding-bottom: 1rem;
 }
 
-/* Story */
-.story {
+/* Story Point */
+.story-point {
   font-size: 0.875rem;
   padding: 0.5rem;
   border: 1px solid #f4f4f4;
@@ -97,10 +97,10 @@
   transition: background-color 0.5s ease;
 }
 
-.story:hover {
+.story-point:hover {
   background-color: #f4f4f4;
 }
 
-.story + .story {
+.story-point + .story-point {
   margin-top: 0.5rem;
 }
