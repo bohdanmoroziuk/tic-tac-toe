@@ -1,4 +1,5 @@
 import { linkEvent } from 'inferno';
+import { array, func } from 'prop-types';
 import Square from './Square';
 
 const Board = ({ squares, makeStep }) => {
@@ -17,6 +18,11 @@ const Board = ({ squares, makeStep }) => {
       {squares.map(renderSquare)}
     </div>
   );
+};
+
+Board.propTypes = {
+  squares: array.isRequired,
+  makeStep: func.isRequired,
 };
 
 export default Board;
