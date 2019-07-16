@@ -3,21 +3,81 @@ import { Component } from 'inferno';
 import Board from './components/Board';
 import Info from './components/Info';
 
+import { determineWinner, isEven } from './helpers';
+
 export default class Game extends Component {
   state = {
-    scale: 9,
+    history: [{
+      squares: Array(9).fill(null)
+    }],
+    step: 0,
+    xIsNext: true,
+  }
+
+  get nextPlayer() {
+    return this.state.xIsNext ? 'X' : 'O';
+  }
+
+  jumpTo = (step) => {
+    this.setState({
+      step,
+      xIsNext: isEven(step),
+    });
+  }
+
+  makeStep = (squareIndex) => {
+    const { history, step, xIsNext } = this.state;
+
+    const currentHistory = history.slice(0, step + 1);
+    const currentSquares = currentHistory[currentHistory.length - 1].squares;
+
+    if (determineWinner(currentSquares) || currentSquares[squareIndex]) {
+      return;
+    }
+
+    const nextSquares = currentSquares.map((player, index) => (
+      index === squareIndex
+        ? this.nextPlayer
+        : player
+    ));
+
+    this.setState({
+      xIsNext: !xIsNext,
+      step: currentHistory.length,
+      history: [ ...currentHistory, { squares: nextSquares } ]
+    });
   }
 
   render() {
-    const { scale } = this.state;
+    const { history, step } = this.state;
+
+    const currentHistory = history[step];
+    const { squares } = currentHistory;
+
+    const winner = determineWinner(squares);
+
+    const status = winner 
+      ? `Win: ${winner}`
+      : `Next player: ${this.nextPlayer}`;
 
     return (
       <div className="game">
-        <div className="game__board">
-          <Board {...{scale}} />
+        <div className="game__section game__board">
+          <Board
+            {...{
+              squares,
+              makeStep: this.makeStep
+            }}
+          />
         </div>
-        <div className="game__info">
-          <Info />
+        <div className="game__section game__info">
+          <Info 
+            {...{
+              status,
+              history,
+              jumpTo: this.jumpTo
+            }}
+          />
         </div>
       </div>
     );

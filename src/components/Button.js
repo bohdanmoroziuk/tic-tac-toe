@@ -1,6 +1,6 @@
-const Button = ({ value, children, ...restProps }) => (
+const Button = ({ children, ...restProps }) => (
   <button {...restProps}>
-    {value || children}
+    {children}
   </button>
 );
 
