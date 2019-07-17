@@ -25,3 +25,12 @@ export const calculateWinner = lines => squares => {
 export const determineWinner = calculateWinner(lines);
 
 export const isEven = number => number % 2 === 0;
+
+export const acceptStringOrNull = (props, propName, componentName) => {
+  const propValue = props[propName];
+
+  if (propValue === null) return;
+  if (typeof propValue === 'string') return;
+  
+  return new Error(`${componentName} only accepts null or string`);
+};
