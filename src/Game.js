@@ -10,7 +10,6 @@ import { determineWinner, isEven } from './helpers';
 /**
  * TODO:
  *  2. Add the ability to choose a player
- *  3. Add the ability to start the game from the beginning
  *  4. Highlight winning squares
  *  5. Refactor code
  */
