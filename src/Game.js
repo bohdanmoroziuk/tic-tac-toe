@@ -1,6 +1,7 @@
 import { Component } from 'inferno';
 
 import Board from './components/Board';
+import Button from './components/Button';
 import Status from './components/Status';
 import History from './components/History';
 
@@ -32,6 +33,10 @@ export default class Game extends Component {
       xIsNext: isEven(step),
     });
   }
+
+  startNewGame = () => {
+    window.location.reload();
+  };
 
   makeStep = (squareIndex) => {
     const { history, step, xIsNext } = this.state;
@@ -83,7 +88,8 @@ export default class Game extends Component {
           <History 
             {...{
               history,
-              jumpTo: this.jumpTo
+              jumpTo: this.jumpTo,
+              startNewGame: this.startNewGame
             }}
           />
         </div>
