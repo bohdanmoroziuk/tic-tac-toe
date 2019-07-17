@@ -64,7 +64,7 @@ export default class Game extends Component {
 
     const winner = determineWinner(squares);
 
-    const status = winner 
+    const text = winner 
       ? `Win: ${winner}`
       : `Next player: ${this.nextPlayer}`;
 
@@ -79,7 +79,7 @@ export default class Game extends Component {
           />
         </div>
         <div className="game__section game__info">
-          <Status {...{status}} />
+          <Status {...{text}} />
           <History 
             {...{
               history,

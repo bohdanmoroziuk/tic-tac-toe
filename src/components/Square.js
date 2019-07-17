@@ -1,5 +1,5 @@
 import Button from './Button';
-import { string } from 'prop-types';
+import { acceptStringOrNull } from '../helpers';
 
 const Square = ({ value, ...restProps }) => (
   <Button 
@@ -11,7 +11,7 @@ const Square = ({ value, ...restProps }) => (
 );
 
 Square.propTypes = {
-  value: string.isRequired,
+  value: acceptStringOrNull,
 };
 
 export default Square;
