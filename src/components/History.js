@@ -4,7 +4,7 @@ import StoryPoint from './StoryPoint';
 
 const History = ({ history, jumpTo }) => {
   const renderStory = (_, step) => {
-    const description = step
+    const text = step
       ? `Go to step #${step}`
       : `To the beginning of the game`;
 
@@ -15,7 +15,7 @@ const History = ({ history, jumpTo }) => {
       >
         <StoryPoint
           {...{
-            description,
+            text,
             handleClick: linkEvent(step, jumpTo)
           }}
         />
