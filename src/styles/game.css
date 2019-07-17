@@ -95,6 +95,10 @@
   width: 100%;
 }
 
+.history__item + .history__item {
+  margin-top: 0.5rem;
+}
+
 /* Status */
 .status {
   padding-bottom: 1rem;
@@ -114,8 +118,4 @@
 
 .story-point:hover {
   background-color: #f1f1f1;
-}
-
-.story-point + .story-point {
-  margin-top: 0.5rem;
 }
