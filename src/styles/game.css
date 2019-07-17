@@ -117,6 +117,7 @@
   transition: all 0.25s ease-in-out;
 }
 
+.button--is-active,
 .button:hover {
   background-color: #f1f1f1;
 }

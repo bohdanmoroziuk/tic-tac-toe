@@ -1,9 +1,16 @@
+import classnames from 'classnames';
 import { string, func } from 'prop-types';
 import Button from './Button';
 
-const StoryPoint = ({ text, handleClick }) => (
+const StoryPoint = ({ text, isActive, handleClick }) => (
   <Button
-    className="story-point button button--is-block"
+    className={
+      classnames(
+        'story-point button button--is-block', { 
+          'button--is-active': isActive 
+        }
+      )
+    }
     onClick={handleClick}
   >
     {text}

@@ -1,12 +1,14 @@
 import { linkEvent } from 'inferno';
-import { array, func } from 'prop-types';
+import { number, array, func } from 'prop-types';
 import StoryPoint from './StoryPoint';
 
-const History = ({ history, jumpTo, startNewGame }) => {
+const History = ({ history, currentStep, jumpTo, startNewGame }) => {
   const renderStory = (_, step) => {
     const text = step
       ? `Go to step #${step}`
       : `To the beginning of the game`;
+
+    const isActive = step === currentStep;
 
     return (
       <li
@@ -16,6 +18,7 @@ const History = ({ history, jumpTo, startNewGame }) => {
         <StoryPoint
           {...{
             text,
+            isActive,
             handleClick: linkEvent(step, jumpTo)
           }}
         />
@@ -42,6 +45,7 @@ const History = ({ history, jumpTo, startNewGame }) => {
 
 History.propTypes = {
   history: array.isRequired,
+  currentStep: number.isRequired,
   jumpTo: func.isRequired,
   startNewGame: func.isRequired,
 };

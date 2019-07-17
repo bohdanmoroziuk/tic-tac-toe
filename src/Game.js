@@ -86,6 +86,7 @@ export default class Game extends Component {
           <History 
             {...{
               history,
+              currentStep: step,
               jumpTo: this.jumpTo,
               startNewGame: this.startNewGame
             }}
