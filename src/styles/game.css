@@ -104,18 +104,23 @@
   padding-bottom: 1rem;
 }
 
-/* Story Point */
-.story-point {
-  width: 100%;
+/* Button */
+.button {
   font-size: 0.875rem;
   padding: 0.5rem;
   border-radius: 2px;
+  background-color: #fff;
   border: 1px solid #f4f4f4;
   cursor: pointer;
+  outline: none;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: all 0.25s ease-in-out;
 }
 
-.story-point:hover {
+.button:hover {
   background-color: #f1f1f1;
+}
+
+.button--is-block {
+  width: 100%;
 }

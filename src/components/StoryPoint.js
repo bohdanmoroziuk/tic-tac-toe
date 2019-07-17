@@ -1,14 +1,13 @@
 import { string, func } from 'prop-types';
+import Button from './Button';
 
 const StoryPoint = ({ text, handleClick }) => (
-  <div
-    className="story-point"
+  <Button
+    className="story-point button button--is-block"
     onClick={handleClick}
   >
-    <p className="story-point__text">
-      {text}
-    </p>
-  </div>
+    {text}
+  </Button>
 );
 
 StoryPoint.propTypes = {
