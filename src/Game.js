@@ -1,7 +1,6 @@
 import { Component } from 'inferno';
 
 import Board from './components/Board';
-import Button from './components/Button';
 import Status from './components/Status';
 import History from './components/History';
 
