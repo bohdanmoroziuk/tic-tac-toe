@@ -1,18 +1,17 @@
 import { string, func } from 'prop-types';
+import Button from './Button';
 
-const StoryPoint = ({ description, handleClick }) => (
-  <div
-    className="story-point"
+const StoryPoint = ({ text, handleClick }) => (
+  <Button
+    className="story-point button button--is-block"
     onClick={handleClick}
   >
-    <p className="story-point__description">
-      {description}
-    </p>
-  </div>
+    {text}
+  </Button>
 );
 
 StoryPoint.propTypes = {
-  description: string.isRequired,
+  text: string.isRequired,
   handleClick: func.isRequired,
 };
 

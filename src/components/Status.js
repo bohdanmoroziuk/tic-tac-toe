@@ -1,15 +1,15 @@
 import { string } from 'prop-types';
 
-const Status = ({ status }) => (
+const Status = ({ text }) => (
   <div className="status">
-    <p className="status__message">
-      {status}
+    <p className="status__text">
+      {text}
     </p>
   </div>
 );
 
 Status.propTypes = {
-  status: string.isRequired,
+  text: string.isRequired,
 };
 
 export default Status;

@@ -8,9 +8,7 @@ import { determineWinner, isEven } from './helpers';
 
 /**
  * TODO:
- *  1. Make the game more beautiful
  *  2. Add the ability to choose a player
- *  3. Add the ability to start the game from the beginning
  *  4. Highlight winning squares
  *  5. Refactor code
  */
@@ -33,6 +31,10 @@ export default class Game extends Component {
       xIsNext: isEven(step),
     });
   }
+
+  startNewGame = () => {
+    window.location.reload();
+  };
 
   makeStep = (squareIndex) => {
     const { history, step, xIsNext } = this.state;
@@ -65,7 +67,7 @@ export default class Game extends Component {
 
     const winner = determineWinner(squares);
 
-    const status = winner 
+    const text = winner 
       ? `Win: ${winner}`
       : `Next player: ${this.nextPlayer}`;
 
@@ -80,11 +82,12 @@ export default class Game extends Component {
           />
         </div>
         <div className="game__section game__info">
-          <Status {...{status}} />
+          <Status {...{text}} />
           <History 
             {...{
               history,
-              jumpTo: this.jumpTo
+              jumpTo: this.jumpTo,
+              startNewGame: this.startNewGame
             }}
           />
         </div>
