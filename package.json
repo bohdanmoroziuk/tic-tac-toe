@@ -1,6 +1,7 @@
 {
   "name": "tic-tac-toe",
   "version": "0.1.0",
+  "description": "Classic game \"Tic-Tac-Toe\" created using Inferno.js",
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
